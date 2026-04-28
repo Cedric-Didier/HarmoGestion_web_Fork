@@ -16,10 +16,10 @@ Ceci est un projet éducatif au sein de l'AFPA de Pompey. Il permet de gérer un
 
 
 ## Conception
-<p>Le dossier de conception contient le document SCRUM, le dossier de déploiement, les compte-rendu de réunion, les diagrammes de classe, de use-case, l'enchainement des écrans, le MCD Looping, les plan de test et la charte graphique. Il y figure également le script de génération de base de données pour MySQL.</p><br/>
+Le dossier de conception contient le document SCRUM, le dossier de déploiement, les compte-rendu de réunion, les diagrammes de classe, de use-case, l'enchainement des écrans, le MCD Looping, les plan de test et la charte graphique. Il y figure également le script de génération de base de données pour MySQL.
 
 ## Utilisation
-<p>Le projet HarmoGestion_web s'utilise en complément de HarmoGestion_API (https://github.com/YamashiFenikkusu/HarmoGestion_API) et d'une base de données MySQL fonctionnelle d'après les instructions fournie dans le dossier de déploiement (script fourni tel que mentionné dans le précédent paragraphe).</p><br/>
+Le projet HarmoGestion_web s'utilise en complément de HarmoGestion_API (https://github.com/YamashiFenikkusu/HarmoGestion_API) et d'une base de données MySQL fonctionnelle d'après les instructions fournie dans le dossier de déploiement (script fourni tel que mentionné dans le précédent paragraphe).
 
 ## Remarques supplémentaires
 
