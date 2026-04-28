@@ -5,7 +5,7 @@ pipeline {
         registryCredentialsId = 'DockerHubAccount'
     }*/
     tools {
-        maven 'maven'
+        maven 'Maven'
         jdk 'JAVA_25'
     }
     stages {
