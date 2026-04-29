@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    /*environment {
-        registryUrl = "cedricdidier/harmogestion_web"
+    environment {
         registryCredentialsId = 'DockerHubAccount'
-    }*/
+        dockerImageName = 'cedricdidier/harmogestion_web:latest'
+    }
     tools {
         maven 'Maven'
         jdk 'JAVA_25'
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'main',
-                        url: 'https://github.com/Cedric-Didier/HarmoGestion_web_Fork.git'
+                    url: 'https://github.com/Cedric-Didier/HarmoGestion_web_Fork.git'
                 }
             }
         }
@@ -30,6 +30,20 @@ pipeline {
         stage('Generate Allure Report') {
             steps {
                 bat 'mvn allure:report'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build(dockerImageName, '-f Dockerfile .')
+                }
+            }
+        }
+        stage('Push Image To Docker Hub') {
+            script {
+                docker.withRegistry('', registryCredentialsId) {
+                    docker.image(dockerImageName).push()
+                }
             }
         }
     }
