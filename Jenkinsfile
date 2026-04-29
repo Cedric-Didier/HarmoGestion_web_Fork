@@ -26,9 +26,7 @@ pipeline {
             // Récupération de bootstrap via npm
             steps {
                 script{
-                    bat 'cd ./src/main/resources/static'
-                    bat 'npm install'
-                    bat 'cd ../../../..'
+                    bat 'cd ./src/main/resources/static; npm install; cd ../../../..'
                 }
             }
         }
