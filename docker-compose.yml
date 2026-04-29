@@ -1,7 +1,7 @@
 name: HarmoGestion_test
 services:
     mysql:
-        image: mysql:latest
+        image: mysql:9.7.0
         volumes:
             -   mysql_data:/var/lib/mysql
             -   ./DossierConception/SQL/script_creation_bdd_and_data.sql:/docker-entrypoint-initdb.d/init.sql:ro
@@ -11,6 +11,7 @@ services:
             MYSQL_PASSWORD: ${BDD_USER_PWD}
             MYSQL_ROOT_PASSWORD: ${BDD_ROOT_PWD}
             MYSQL_DATABASE: harmogestion
+
     api:
         image: cedricdidier/harmogestion_api:latest
         depends_on:
@@ -27,7 +28,7 @@ services:
     phpmyadmin:
         depends_on:
             - mysql
-        image: phpmyadmin:latest
+        image: phpmyadmin:5.2.3
         ports:
             - "8090:80"
         restart: unless-stopped
@@ -35,7 +36,7 @@ services:
             PMA_HOST: mysql
             MYSQL_ROOT_PASSWORD: ${BDD_ROOT_PWD}
     web:
-        image: harmogestion_web:latest
+        image: cedricdidier/harmogestion_web:latest
         depends_on:
             -   api
         restart: unless-stopped
