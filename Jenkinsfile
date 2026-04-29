@@ -4,10 +4,14 @@ pipeline {
         registryCredentialsId = 'DockerHubAccount'
         dockerImageName = 'cedricdidier/harmogestion_web:latest'
     }
+    node{
+        env.NODEJS_HOME = "${tool 'NodeJs'}"
+        env.PATH="${env.NODEJS_HOME};${env.PATH}"
+        bat 'npm --version'
+    }
     tools {
         maven 'Maven'
         jdk 'JAVA_25'
-        nodejs 'NodeJs'
     }
     stages {
         stage('Clean workspace') {
