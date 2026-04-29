@@ -13,12 +13,18 @@ import java.util.ArrayList;
 @Controller
 public class ControllerPagesStandards {
     /**
+     * Titre de la page.
+     */
+    public static final String TITRE_PAGE_PARAM = "titrePage";
+
+    /**
      * Méthode d'accès à la page d'index'.
      * @param model Modèle de la page.
      * @return URI de la page.
      */
     @GetMapping("/index")
     public String index(Model model) {
+        model.addAttribute(TITRE_PAGE_PARAM, "Accueil");
         return "index";
     }
 
@@ -29,6 +35,7 @@ public class ControllerPagesStandards {
      */
     @GetMapping("/accessibilite")
     public String accessibilite(Model model) {
+        model.addAttribute(TITRE_PAGE_PARAM, "Accessibilité");
         return "accessibilite";
     }
 
@@ -39,6 +46,7 @@ public class ControllerPagesStandards {
      */
     @GetMapping("/mentionsLegales")
     public String mentionsLegales(Model model) {
+        model.addAttribute(TITRE_PAGE_PARAM, "Mentions légales");
         return "mentionsLegales";
     }
 }
