@@ -7,6 +7,7 @@ pipeline {
     tools {
         maven 'Maven'
         jdk 'JAVA_25'
+        nodejs 'NodeJs'
     }
     stages {
         stage('Clean workspace') {
@@ -25,7 +26,7 @@ pipeline {
         stage('Build npm'){
             // Récupération de bootstrap via npm
             steps {
-                nodejs(nodeJSInstallationName:'NodeJs'){
+                script {
                     bat 'cd ./src/main/resources/static; npm install; cd ../../../..'
                 }
             }
