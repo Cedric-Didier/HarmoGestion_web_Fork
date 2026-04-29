@@ -40,9 +40,12 @@ pipeline {
             }
         }
         stage('Push Image To Docker Hub') {
-            script {
-                docker.withRegistry('', registryCredentialsId) {
-                    docker.image(dockerImageName).push()
+            steps{
+                script {
+                    docker.withRegistry('', registryCredentialsId) {
+                        docker.image(dockerImageName).push()
+
+                    }
                 }
             }
         }
