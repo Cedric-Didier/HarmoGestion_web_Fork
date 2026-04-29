@@ -25,7 +25,7 @@ pipeline {
         stage('Build npm'){
             // Récupération de bootstrap via npm
             steps {
-                script{
+                nodejs(nodeJSInstallationName:'NodeJs'){
                     bat 'cd ./src/main/resources/static; npm install; cd ../../../..'
                 }
             }
