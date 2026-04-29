@@ -22,14 +22,28 @@ pipeline {
                 }
             }
         }
+        stage('Build npm'){
+            // Récupération de bootstrap via npm
+            steps {
+                script{
+                    bat 'cd ./src/main/ressources/static'
+                    bat 'npm install'
+                    bat 'cd ../../../..'
+                }
+            }
+        }
         stage('Build Maven') {
             steps {
-                bat 'mvn clean package'
+                script {
+                    bat 'mvn clean package'
+                }
             }
         }
         stage('Generate Allure Report') {
             steps {
-                bat 'mvn allure:report'
+                script {
+                    bat 'mvn allure:report'
+                }
             }
         }
         stage('Build Docker Image') {
