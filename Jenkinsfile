@@ -25,7 +25,9 @@ pipeline {
         stage('Build npm'){
             // Récupération de bootstrap via npm
             steps {
-                bat 'cd ./src/main/resources/static; npm install; cd ../../../..'
+                bat 'cd ./src/main/resources/static'
+                bat 'npm install'
+                bat 'cd ../../../..'
             }
         }
         stage('Build Maven') {
