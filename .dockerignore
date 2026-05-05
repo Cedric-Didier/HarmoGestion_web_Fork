@@ -1,7 +1,13 @@
 .env
 .editorconfig
+.gitattributes
+.gitignore
+mvnw
+mvnw.cmd
+*.iml
 docker-compose.yml
 Jenkinsfile
-DossierConception
-.idea
-.mvn
+DossierConception/
+.idea/
+.mvn/
+.git/
